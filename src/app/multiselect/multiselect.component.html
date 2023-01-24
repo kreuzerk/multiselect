@@ -1,0 +1,20 @@
+<input cdkOverlayOrigin
+       #overlayOrigin="cdkOverlayOrigin"
+       [value]="displayValue"
+       (click)="openOverlay()"
+/>
+
+<ng-template
+  cdkConnectedOverlay
+  #overlay="cdkConnectedOverlay"
+  [cdkConnectedOverlayOrigin]="overlayOrigin"
+  [cdkConnectedOverlayOpen]="open"
+  [cdkConnectedOverlayHasBackdrop]="true"
+  cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+  (backdropClick)="closeOverlay()"
+  (detach)="closeOverlay()"
+>
+  <div class="overlay-container">
+    <ng-content></ng-content>
+  </div>
+</ng-template>
